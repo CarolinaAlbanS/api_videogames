@@ -1,7 +1,4 @@
-const { json } = require("express");
 const Books = require("../models/libros.models");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
 
 const getLibros = async (req, res, next) => {
