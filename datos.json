@@ -1,5 +1,104 @@
-{
+[{
     "title" : "EL señor de los añillos",
     "autor": "J.R.R. Tolkien",
     "year": 1954
+},
+
+{
+    "title" : "Romeo y Julieta",
+    "autor": "William Shakespeare",
+    "year": 1597
+},
+
+{
+    "title" : "El problema final",
+    "autor": "Arturo Pérez-Reverte",
+    "year": 2023, 
+    "genre": "Ficcion, Misterio, Suspense"
+},
+
+{
+    "title" : "Cien años de soledad",
+    "autor": "Gabriel García Márquez",
+    "year": 1967, 
+    "genre": "Novela, Ficcion "
+},
+
+{
+    "title" : "Un mundo feliz",
+    "autor": "Aldous Huxley",
+    "year": 1932, 
+    "genre": "Novela, Ciencia Ficcion"
+},
+{
+    "title" : "1984",
+    "autor": "George Orwell",
+    "year": 1940, 
+    "genre": "Ciencia Ficcion, Ficcion Politica"
+},
+{
+    "title" : "El Juego de Ender",
+    "autor": "Orson Scott Card",
+    "year": 1985, 
+    "genre": "Ciencia Ficcion"
+},
+{
+    "title" : "Ulises",
+    "autor": "James Joyce",
+    "year": 1920, 
+    "genre": "Novela, Ficcion"
+},
+{
+    "title" : "Los asesinatos de Crediton",
+    "autor": "Michael Jecks",
+    "year": 2005, 
+    "genre": "Novela historica"
+},
+{
+    "title" : "El barracón de las mujeres",
+    "autor": "Fermina Cañaverass",
+    "year": 2024, 
+    "genre": "Novela historica"
+},
+{
+    "title" : "Un cuento perfecto",
+    "autor": "Elisabet Benavent",
+    "year": 2020, 
+    "genre": "Novela Romantica"
+
+},
+{
+    "title" : "El viento conoce mi nombre",
+    "autor": "Isabel Allende",
+    "year": 2023, 
+    "genre": "Ficcion literaria"
+},
+{
+    "title" : "Madame Bovary",
+    "autor": "Gustave Flaubert",
+    "year": 1856, 
+    "genre": "Realismo literario"
+},
+{
+    "title" : "En busca del tiempo perdido",
+    "autor": "Marcel Proust",
+    "year": 1914, 
+    "genre": "Ficcion"
+},
+{
+    "title" : "Crimen y castigo",
+    "autor": "Fiódor Dostoyevski",
+    "year": 1866, 
+    "genre": "Ficcion filosofica"
+},
+{
+    "title" : "El Principito",
+    "autor": "Antoine de Saint-Exupéry",
+    "year": 1943, 
+    "genre": "Literatura infantil, Fabula"
 }
+
+
+
+
+]

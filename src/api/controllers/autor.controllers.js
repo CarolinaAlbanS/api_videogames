@@ -1,37 +1,35 @@
-const { json } = require("express");
-const Books = require("../models/libros.models");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const Autor = require("../models/autor.models");
 const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
 
-const getLibros = async (req, res, next) => {
+const getAutor = async (req, res, next) => {
   try {
-    const books = await Books.find();
+    const autors = await Autor.find();
     res.status(200).json({
       status: 200,
       message: HTTPSTATUSCODE[200],
-      data: books,
+      data: autors,
     });
   } catch (error) {
     next(error);
   }
 };
 
-const createlibros = async (req, res, next) => {
+const createAutor = async (req, res, next) => {
   try {
-    const book = new Books();
-    book.title = req.body.title;
-    book.autor = req.body.autor;
-    book.year = req.body.year;
-    book.genre = req.body.genre;
-    if (await Books.findOne({ title: req.body.title })) {
+    const escritor = new Autor(req.body);
+    /* escritor.name = req.body.name;
+    escritor.surname = req.body.surmane;
+    escritor.nationality = req.body.nationality;*/
+
+    //return res.json(req.body);
+    if (await Autor.findOne({ name: req.body.name })) {
       return res.status(400).json({
         status: 400,
         message: HTTPSTATUSCODE[400],
         data: null,
       });
     }
-    await book.save();
+    await escritor.save();
     return res.status(201).json({
       status: 201,
       message: HTTPSTATUSCODE[201],
@@ -42,11 +40,11 @@ const createlibros = async (req, res, next) => {
   }
 };
 
-const deletelibros = async (req, res) => {
+const deleteAutor = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const deletelibros = await Books.findByIdAndDelete(id);
-    if (!deletelibros) {
+    const deleteAutor = await Autor.findByIdAndDelete(id);
+    if (!deleteAutor) {
       return res.status(404).json({
         status: 404,
         messagee: HTTPSTATUSCODE[404],
@@ -58,12 +56,12 @@ const deletelibros = async (req, res) => {
   }
 };
 
-const updatelibros = async (request, response, next) => {
+const updateAutor = async (request, response, next) => {
   try {
     const id = request.params.id;
     const body = request.body;
-    const libro = await Books.findByIdAndUpdate(id, body, { new: true });
-    if (!libro) {
+    const autor = await Autor.findByIdAndUpdate(id, body, { new: true });
+    if (!autor) {
       return response.status(404).json({
         status: 404,
         message: HTTPSTATUSCODE[404],
@@ -79,4 +77,4 @@ const updatelibros = async (request, response, next) => {
   }
 };
 
-module.exports = { getLibros, createlibros, deletelibros, updatelibros };
+module.exports = { getAutor, createAutor, deleteAutor, updateAutor };

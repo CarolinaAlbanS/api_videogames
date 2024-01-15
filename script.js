@@ -6,6 +6,9 @@ const mongoSanitize = require("express-mongo-sanitize");
 const HTTPSTATUSCODE = require("./src/utils/httpStatusCode");
 const { connectMongo } = require("./src/utils/db");
 const librosRoutes = require("./src/api/routes/libros.routes");
+const userRouter = require("./src/api/routes/user.routes");
+const autorRoutes = require("./src/api/routes/autor.router");
+
 connectMongo();
 const app = express();
 
@@ -29,6 +32,8 @@ app.use(
 
 // routes
 app.use("/all-books", librosRoutes);
+app.use("/all-books/users", userRouter);
+app.use("/all-books/autor", autorRoutes);
 
 // ruta de bienvenida
 

@@ -4,11 +4,13 @@ const {
   getLibros,
   createlibros,
   deletelibros,
+  updatelibros,
 } = require("../controllers/libros.controllers");
 const { isAuth } = require("../middlewares/auth.middleware");
 
 librosRoutes.get("/", getLibros);
-librosRoutes.post("/", createlibros);
+librosRoutes.post("/", [isAuth], createlibros);
+librosRoutes.put("/:id", [isAuth], updatelibros);
 librosRoutes.delete("/", deletelibros);
 
 module.exports = librosRoutes;
