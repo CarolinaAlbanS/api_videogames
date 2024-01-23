@@ -14,6 +14,20 @@ const getLibros = async (req, res, next) => {
   }
 };
 
+const getLibroId = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const libro = await Book.findById(id);
+    res.status(200).json({
+      status: 200,
+      message: HTTPSTATUSCODE[200],
+      data: libro,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
 const createlibros = async (req, res, next) => {
   try {
     const book = new Book(req.body);
@@ -78,4 +92,4 @@ const updatelibros = async (request, response, next) => {
   }
 };
 
-module.exports = { getLibros, createlibros, deletelibros, updatelibros };
+module.exports = { getLibros, getLibroId,  createlibros, deletelibros, updatelibros };
