@@ -3,11 +3,14 @@ const bcrypt = require("bcrypt");
 const salt = 10;
 
 const bookSchema = new mongoose.Schema({
-  title: { type: String, unique: true, trim: true, required: true },
-  autor: { type: String, trim: true, required: true },
-  year: { type: Number, required: true },
-  genre: { type: String },
+  
+    id:{ type: String },
+    img:{ type: String, require:true},
+    title:{ type: String, unique: true, trim: true},
+    autor: { type: String, trim: true },
+    year: { type: Number},
+    genre:{ type: String},
 });
 
-const Books = mongoose.model("book", bookSchema);
-module.exports = Books;
+const Book = mongoose.model("book", bookSchema);
+module.exports = Book;

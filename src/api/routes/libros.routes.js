@@ -9,8 +9,8 @@ const {
 const { isAuth } = require("../middlewares/auth.middleware");
 
 librosRoutes.get("/", getLibros);
-librosRoutes.post("/", [isAuth], createlibros);
-librosRoutes.put("/:id", [isAuth], updatelibros);
+librosRoutes.post("/",  createlibros);
+librosRoutes.put("/:id", updatelibros);
 librosRoutes.delete("/", deletelibros);
 
 module.exports = librosRoutes;
