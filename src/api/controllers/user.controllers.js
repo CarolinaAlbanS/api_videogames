@@ -35,14 +35,14 @@ const createUser = async (request, response, next) => {
 
 const authenticate = async (request, response, next) => {
   try {
-    const userInfo = await User.findOne({ name: request.body.name });
-    //if (bcrypt.compareSync(request.body.password, userInfo.password)) {
-    if (userInfo.password == request.body.password) {
+    // email y pasword
+    const userInfo = await User.findOne({ email: request.body.email });
+    if (bcrypt.compareSync(request.body.password, userInfo.password)) {
       userInfo.password = null;
       const token = jwt.sign(
         {
           id: userInfo._id,
-          name: userInfo.name,
+          email: userInfo.email,
         },
         request.app.get("secretKey"),
         { expiresIn: "1d" }

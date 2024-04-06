@@ -86,6 +86,29 @@ const updateGames = async (req, res, next) => {
     next(error);
   }
 };
+const updateVoteGames = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const game = await Games.findByIdAndUpdate(
+      id,
+      { $inc: { votes: 1 } },
+      { new: true }
+    );
+    if (!game) {
+      return res.status(404).json({
+        status: 404,
+        message: HTTPSTATUSCODE[404],
+      });
+    }
+    res.status(200).json({
+      status: 200,
+      message: HTTPSTATUSCODE[200],
+      data: null,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 module.exports = {
   getGames,
@@ -93,4 +116,5 @@ module.exports = {
   createGames,
   deleteGames,
   updateGames,
+  updateVoteGames,
 };
