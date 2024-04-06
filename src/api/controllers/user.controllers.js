@@ -2,13 +2,15 @@ const User = require("../models/user.models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
-const Books = require("../models/libros.models");
+const Games = require("../models/games.models");
+const { response } = require("express");
 
 const createUser = async (request, response, next) => {
   try {
-    const user = new User();
-    user.name = request.body.name;
-    user.password = request.body.password;
+    const user = new User(request.body);
+
+    const salt = 10;
+    user.password = await bcrypt.hash(request.body.password, salt);
 
     if (await User.findOne({ name: request.body.name })) {
       return response.status(400).json({
@@ -18,11 +20,13 @@ const createUser = async (request, response, next) => {
       });
     }
 
-    await user.save();
+    const createUsers = await user.save();
+    console.log(createUser);
+
     return response.status(201).json({
       status: 201,
       message: HTTPSTATUSCODE[201],
-      data: null,
+      data: createUsers,
     });
   } catch (error) {
     next(error);

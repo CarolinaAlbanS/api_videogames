@@ -1,7 +1,7 @@
 {
-  "name": "ejercicio_estructurado",
+  "name": "Videojuegos",
   "version": "1.0.0",
-  "description": "ejercicio desde cero",
+  "description": "prueba tecnica attomo",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

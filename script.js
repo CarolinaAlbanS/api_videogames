@@ -5,9 +5,8 @@ const cors = require("cors");
 const mongoSanitize = require("express-mongo-sanitize");
 const HTTPSTATUSCODE = require("./src/utils/httpStatusCode");
 const { connectMongo } = require("./src/utils/db");
-const librosRoutes = require("./src/api/routes/libros.routes");
+const gamesRoutes = require("./src/api/routes/games.routes");
 const userRouter = require("./src/api/routes/user.routes");
-const autorRoutes = require("./src/api/routes/autor.router");
 
 connectMongo();
 const app = express();
@@ -17,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger("dev"));
 app.set("secretKey", "nodeRestApi");
 app.use(mongoSanitize());
+
+// Respuesta que da nuestra app
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET,PATCH,POST,DELETE");
   res.header("Access-Control-Allow-Credentials", true);
@@ -25,22 +26,21 @@ app.use((req, res, next) => {
 });
 app.use(
   cors({
-    origin: ["*", "http://localhost:3001", "http://localhost:4200"],
+    origin: ["*", "http://localhost:3001", "http://localhost:3000"],
     credentials: true,
   })
 );
 
 // routes
-app.use("/all-books", librosRoutes);
-app.use("/all-books/users", userRouter);
-app.use("/all-books/autor", autorRoutes);
+app.use("/games", gamesRoutes);
+app.use("/users", userRouter);
 
 // ruta de bienvenida
 
 app.get("/", (request, response) => {
   response.status(200).json({
     message: "Welcome to my server",
-    app: "Books App",
+    app: "Videogames App",
   });
 });
 
