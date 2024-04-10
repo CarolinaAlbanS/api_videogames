@@ -2,7 +2,6 @@ const User = require("../models/user.models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
-const Games = require("../models/games.models");
 const { response } = require("express");
 
 const createUser = async (request, response, next) => {
@@ -89,10 +88,31 @@ const getUsers = async (request, response, next) => {
     next(error);
   }
 };
+const updateUser = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const body = req.body;
+    const user = await User.findByIdAndUpdate(id, body, { new: true });
+    if (!user) {
+      return res.status(404).json({
+        status: 404,
+        message: HTTPSTATUSCODE[404],
+      });
+    }
+    res.status(200).json({
+      status: 200,
+      message: HTTPSTATUSCODE[200],
+      data: null,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
 module.exports = {
   createUser,
   authenticate,
   logout,
   getUsers,
+  updateUser,
 };

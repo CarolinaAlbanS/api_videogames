@@ -6,7 +6,7 @@ const gameSchema = new mongoose.Schema({
   title: { type: String, unique: true, trim: true },
   img: { type: String, require: true },
   category: { type: String },
-  votes: { type: Number },
+  votes: { type: Number, default: 0 },
   comment: { type: String, trim: true },
 });
 

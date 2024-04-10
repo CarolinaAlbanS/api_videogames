@@ -9,7 +9,7 @@ const datos = [
   {
     img: "https://www.lavanguardia.com/files/og_thumbnail/uploads/2020/04/01/5fa9039de905f.png",
     title: "Persona 5 Royal",
-    category: "Anime, Mascaras",
+    category: "Anime",
     votes: 5,
     comment: "Muy divertido",
   },
@@ -21,7 +21,7 @@ const datos = [
     comment: "¡Es como estar dentro de Hogwarts!",
   },
   {
-    img: "https://cdn-products.eneba.com/resized-products/faaTwmRiXM6cCnaCYWJ8f6VM3qTpWm7o0KlcqsnTRdw_350x200_1x-0.png",
+    img: "https://cdn2.unrealengine.com/egs-northgard-shirogames-g1a-00-1920x1080-315584a1b3b7.jpg",
     title: "Northgard",
     category: "Aventura, Acción, Fantasía",
     votes: 4,
