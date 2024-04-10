@@ -1,5 +1,5 @@
 {
-  "name": "Videojuegos",
+  "name": "api_videogames",
   "version": "1.0.0",
   "description": "prueba tecnica attomo",
   "main": "script.js",
@@ -8,7 +8,6 @@
     "start": "node script.js",
     "dev": "nodemon script.js",
     "estaciones-seed": "node ./src/semillas/estaciones.seed.js"
-
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +20,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.4",
     "morgan": "^1.10.0",
-    "parcel-bundler": "^1.12.5"
+    "parcel-bundler": "^1.12.5",
+    "vercel": "^33.7.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

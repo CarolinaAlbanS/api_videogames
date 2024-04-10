@@ -61,6 +61,10 @@ const deleteGames = async (req, res) => {
         data: borrado,
       });
     }
+    res.status(200).json({
+      status: 200,
+      message: HTTPSTATUSCODE[200],
+    });
   } catch (error) {
     next(error);
   }
