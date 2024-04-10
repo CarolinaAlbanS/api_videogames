@@ -50,7 +50,7 @@ const createGames = async (req, res, next) => {
   }
 };
 
-const deleteGames = async (req, res) => {
+const deleteGames = async (req, res, next) => {
   try {
     const { id } = req.params;
     const deleteGames = await Games.findByIdAndDelete(id);
