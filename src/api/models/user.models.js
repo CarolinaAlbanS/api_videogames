@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, unique: true, trim: true, required: true },
   password: { type: String, trim: true, required: true },
   role: { type: String, trim: true, default: "user" },
+  votes: { type: Number, default: 5 },
 });
 
 userSchema.pre("save", (next) => {

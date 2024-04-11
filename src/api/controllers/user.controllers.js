@@ -109,10 +109,50 @@ const updateUser = async (req, res, next) => {
   }
 };
 
+const getUserId = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    res.status(200).json({
+      status: 200,
+      message: HTTPSTATUSCODE[200],
+      data: user,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updateRestVotes = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const vote = await User.findByIdAndUpdate(
+      id,
+      { $inc: { votes: -1 } },
+      { new: true }
+    );
+    if (!vote) {
+      return res.status(404).json({
+        status: 404,
+        message: HTTPSTATUSCODE[404],
+      });
+    }
+    res.status(200).json({
+      status: 200,
+      message: HTTPSTATUSCODE[200],
+      data: vote,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   createUser,
   authenticate,
   logout,
   getUsers,
+  getUserId,
   updateUser,
+  updateRestVotes,
 };

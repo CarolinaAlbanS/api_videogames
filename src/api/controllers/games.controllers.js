@@ -107,7 +107,7 @@ const updateVoteGames = async (req, res, next) => {
     res.status(200).json({
       status: 200,
       message: HTTPSTATUSCODE[200],
-      data: null,
+      data: game,
     });
   } catch (error) {
     next(error);
